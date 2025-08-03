@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>L'Oréal | Smart Routine &amp; Product Advisor</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
       rel="stylesheet"
     />
     <link
@@ -25,6 +31,9 @@
 
       <!-- Category Filter -->
       <div class="search-section">
+        <label for="categoryFilter" id="categoryLabel" class="visually-hidden"
+          >Product Category</label
+        >
         <select id="categoryFilter">
           <option value="" disabled selected>Choose a Category</option>
           <option value="cleanser">Cleansers</option>
@@ -88,5 +97,45 @@
     <!-- secrets.js can be removed when using Cloudflare Workers for API requests -->
     <script src="secrets.js"></script>
     <script src="script.js"></script>
+    <script>
+      // --- Auto-switch RTL for Google Translate ---
+      // List of RTL language codes used by Google Translate
+      const rtlLangs = [
+        "ar", // Arabic
+        "he", // Hebrew
+        "fa", // Persian
+        "ur", // Urdu
+        "ps", // Pashto
+        "sd", // Sindhi
+        "ug", // Uyghur
+        "yi", // Yiddish
+      ];
+
+      // Helper to check if a language code is RTL
+      function isRtlLang(lang) {
+        return rtlLangs.includes(lang);
+      }
+
+      // Observe changes to the <html> tag's class attribute (Google Translate toggles classes)
+      const htmlEl = document.documentElement;
+      const observer = new MutationObserver(() => {
+        // Google Translate sets a class like "translated-ltr" or "translated-rtl"
+        const classList = htmlEl.className;
+        // Try to detect the language code from the "lang" attribute (set by Google Translate)
+        const lang = htmlEl.getAttribute("lang");
+        if (lang && isRtlLang(lang.split("-")[0])) {
+          htmlEl.dir = "rtl";
+        } else if (classList.includes("translated-rtl")) {
+          htmlEl.dir = "rtl";
+        } else {
+          htmlEl.dir = "ltr";
+        }
+      });
+
+      observer.observe(htmlEl, {
+        attributes: true,
+        attributeFilter: ["class", "lang"],
+      });
+    </script>
   </body>
 </html>

@@ -7,10 +7,11 @@
 
 /* —— body + fonts —— */
 body {
-  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-family: "Inter", "Montserrat", Arial, Helvetica, sans-serif;
   color: #333;
   display: flex;
   justify-content: center;
+  background: #fffaf8; /* subtle warm background */
 }
 
 .page-wrapper {
@@ -23,6 +24,8 @@ body {
   text-align: center;
   padding-top: 50px;
   padding-bottom: 10px;
+  /* Add a gold accent border */
+  border-bottom: 3px solid #e3a535;
 }
 
 .logo {
@@ -31,9 +34,13 @@ body {
 }
 
 .site-title {
+  font-family: "Merriweather", "Inter", "Montserrat", Arial, Helvetica,
+    sans-serif;
   font-size: 22px;
   font-weight: 500;
   margin-bottom: 10px;
+  color: #b8002a; /* darker red for better contrast */
+  letter-spacing: 1px;
 }
 
 /* category filter */
@@ -43,32 +50,39 @@ body {
 }
 
 .search-section select {
+  font-family: "Inter", "Montserrat", Arial, Helvetica, sans-serif;
   width: 100%;
   padding: 16px;
   font-size: 18px;
-  border: 2px solid #000;
+  border: 2px solid #e3a535;
   border-radius: 8px;
   cursor: pointer;
-  background-color: white;
+  background-color: #fff;
   font-weight: 500;
+  color: #b8002a; /* darker red for better contrast */
+  transition: border 0.2s;
 }
 
 .search-section select:focus {
   outline: none;
-  border-color: #666;
+  border-color: #ff003b;
 }
 
 /* chat section */
 .chatbox {
   margin: 40px 0;
-  border: 2px solid #000;
+  border: 2px solid #e3a535;
   border-radius: 8px;
   padding: 26px;
+  background: #fffbe9;
 }
 
 .chatbox h2 {
+  font-family: "Merriweather", "Inter", "Montserrat", Arial, Helvetica,
+    sans-serif;
   font-size: 20px;
   margin-bottom: 20px;
+  color: #b8002a; /* darker red for better contrast */
 }
 
 .chat-window {
@@ -77,8 +91,10 @@ body {
   line-height: 1.5;
   height: 250px;
   overflow-y: auto;
-  background: #fafafa;
+  background: #fff;
   margin-bottom: 20px;
+  border: 1.5px solid #e3a535;
+  border-radius: 8px;
 }
 
 /* placeholder message */
@@ -86,8 +102,10 @@ body {
   width: 100%;
   text-align: center;
   padding: 40px;
-  color: #666;
+  color: #7a4a00; /* dark gold for contrast */
   font-size: 18px;
+  background: #fffbe9;
+  border-radius: 8px;
 }
 
 /* input row */
@@ -102,18 +120,19 @@ body {
   padding: 12px;
   font-size: 18px;
   border: none;
-  border-bottom: 2px solid #ccc;
+  border-bottom: 2px solid #e3a535;
   background: transparent;
+  color: #333;
 }
 
 .chat-form input:focus {
   outline: none;
-  border-bottom-color: #000;
+  border-bottom-color: #ff003b;
 }
 
 .chat-form button {
   font-size: 18px;
-  background: #000;
+  background: #ff003b;
   color: #fff;
   border: none;
   padding: 12px;
@@ -124,14 +143,15 @@ body {
   justify-content: center;
   cursor: pointer;
   transition: background 0.3s;
+  border-radius: 8px;
 }
 
 .chat-form button:hover {
-  background: #666666;
+  background: #e3a535;
 }
 
 .chat-form button:focus {
-  outline: 2px solid #000;
+  outline: 2px solid #ff003b;
   outline-offset: 2px;
 }
 
@@ -180,12 +200,28 @@ body {
 
 .product-card {
   flex: 0 1 calc(33.333% - 14px);
-  border: 1px solid #ccc;
+  border: 2px solid #e3a535;
   padding: 15px;
-  border-radius: 4px;
+  border-radius: 8px;
   display: flex;
   gap: 15px;
   min-height: 160px;
+  cursor: pointer;
+  background: #fff;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.product-card.selected {
+  border: 2.5px solid #ff003b;
+  background: #fff0f4;
+  box-shadow: 0 0 0 2px #ff003b33;
+}
+
+.product-card:hover,
+.product-card:focus {
+  border: 2.5px solid #ff003b;
+  box-shadow: 0 2px 12px #ff003b22;
+  cursor: pointer;
 }
 
 .product-card img {
@@ -204,26 +240,51 @@ body {
 }
 
 .product-card h3 {
+  font-family: "Merriweather", "Inter", "Montserrat", Arial, Helvetica,
+    sans-serif;
   font-size: 16px;
   margin-bottom: 8px;
+  color: #b8002a; /* darker red for better contrast */
 }
 
 .product-card p {
   font-size: 14px;
-  color: #666;
+  color: #7a4a00; /* dark gold for contrast */
+}
+
+.toggle-desc-btn {
+  cursor: pointer;
+  background: #e3a535;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 14px;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+
+.toggle-desc-btn:hover,
+.toggle-desc-btn:focus {
+  background: #b8002a; /* darker red for better contrast */
+  outline: none;
 }
 
 /* selected products */
 .selected-products {
   margin: 40px 0;
   padding: 20px;
-  border: 2px solid #000;
+  border: 2px solid #e3a535;
   border-radius: 8px;
+  background: #fffbe9;
 }
 
 .selected-products h2 {
+  font-family: "Merriweather", "Inter", "Montserrat", Arial, Helvetica,
+    sans-serif;
   font-size: 20px;
   margin-bottom: 20px;
+  color: #b8002a; /* darker red for better contrast */
 }
 
 #selectedProductsList {
@@ -232,6 +293,33 @@ body {
   gap: 10px;
 }
 
+.selected-product-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #e3a535;
+  padding: 6px 0;
+}
+
+.selected-product-item span {
+  color: #b8002a; /* darker red for better contrast */
+}
+
+.selected-product-item button.remove-selected-btn {
+  margin-left: 4px;
+  background: none;
+  border: none;
+  color: #b8002a;
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.selected-product-item button.remove-selected-btn:hover {
+  color: #e3a535;
+}
+
+/* Generate Routine Button */
 .generate-btn {
   width: 100%;
   margin-top: 20px;
@@ -239,7 +327,7 @@ body {
   font-size: 18px;
   font-weight: 500;
   color: #fff;
-  background: #000;
+  background: #b8002a; /* darker red for better contrast */
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -247,9 +335,138 @@ body {
 }
 
 .generate-btn:hover {
-  background: #666;
+  background: #e3a535;
 }
 
 .generate-btn i {
   margin-right: 8px;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(30, 30, 30, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px 32px 24px 32px;
+  max-width: 600px;
+  min-width: 400px;
+  width: 60vw;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  position: relative;
+  outline: none;
+  border: 2px solid #b8002a;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #b8002a;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal-product {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.modal-product img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #fffbe9;
+  flex-shrink: 0;
+}
+
+.modal-product-info {
+  flex: 1;
+}
+
+.modal-product-info h2 {
+  font-family: "Merriweather", "Inter", "Montserrat", Arial, Helvetica,
+    sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  color: #b8002a; /* darker red for better contrast */
+}
+
+.modal-product-info p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* RTL support */
+html[dir="rtl"],
+body[dir="rtl"] {
+  direction: rtl;
+}
+
+body[dir="rtl"] .page-wrapper {
+  text-align: right;
+}
+
+body[dir="rtl"] .site-header,
+body[dir="rtl"] .site-footer {
+  text-align: right;
+}
+
+body[dir="rtl"] .search-section,
+body[dir="rtl"] .products-grid,
+body[dir="rtl"] #selectedProductsList,
+body[dir="rtl"] .chat-form {
+  flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .product-card,
+body[dir="rtl"] .selected-product-item,
+body[dir="rtl"] .modal-product {
+  flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .product-card .product-info,
+body[dir="rtl"] .modal-product-info {
+  text-align: right;
+}
+
+body[dir="rtl"] .selected-products h2,
+body[dir="rtl"] .selected-products #clearAllBtn {
+  text-align: right;
+}
+
+body[dir="rtl"] .selected-products #clearAllBtn {
+  margin-left: 0 !important;
+  margin-right: 16px !important;
+}
+
+body[dir="rtl"] .selected-product-item button.remove-selected-btn {
+  margin-left: 0 !important;
+  margin-right: 4px !important;
+}
+
+body[dir="rtl"] .modal-close-btn {
+  right: auto;
+  left: 22px;
+}
+
+body[dir="rtl"] .chat-form input {
+  text-align: right;
 }
